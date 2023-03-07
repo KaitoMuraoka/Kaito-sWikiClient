@@ -1,7 +1,7 @@
 package com.example.wikiclient.ui.model
 
-data class Article (
+data class Article(
     val id: Int,
     val title: String,
-    val thumbnailUrl: String,
+    val thumbnailUrl: String?,
         )
