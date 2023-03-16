@@ -28,9 +28,20 @@ class MainActivity : AppCompatActivity() {
 
         initArticleList()
         observeArticles()
+        initButton()
 
         // Web APIからのデータを取得開始("Android"というキーワードで20件取得)
         viewModel.fetchArticles("Android", 20)
+    }
+
+    private fun initButton() {
+        binding.button.setOnClickListener {
+            // 検索ボタンをクリック時の処理
+            val formText = binding.from.text.toString() // フォームに入力されている値を取得
+            if (formText.isNotEmpty()) {
+                viewModel.fetchArticles(formText, 20)
+            }
+        }
     }
 
     // RecycleViewの初期設定
